@@ -6,10 +6,10 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-  steps:
-    - uses: actions/checkout@v3
-    - name: Installing the nodejs with 18 version
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
-    - run: node app.js
+    steps:
+      - uses: actions/checkout@v3
+      - name: Installing the nodejs with 18 version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: node app.js

@@ -12,4 +12,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: docker build -t hello .
+      - run: sudo docker build -t hello .

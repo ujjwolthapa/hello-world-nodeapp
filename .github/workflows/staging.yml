@@ -5,7 +5,7 @@ on:
 
 env:
   DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
-  DOCKER_PASSWORD: ${{secrets.DCOKER_PASSWORD}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
 jobs:
   build:
     runs-on: self-hosted

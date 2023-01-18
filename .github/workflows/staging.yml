@@ -3,6 +3,9 @@ on:
   push:
     branches: [staging]
 
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+  DOCKER_PASSWORD: ${{secrets.DCOKER_PASSWORD}}
 jobs:
   build:
     runs-on: self-hosted
@@ -12,6 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-      - run: sudo docker build -t ${{secrets.DOCKER_USERNAME}}/hellonodejs:github .
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - run: sudo docker build -t $DOCKER_USER/hellonodejs:github .
       - run: sudo docker push bromx/hellonodejs:github

@@ -1,4 +1,4 @@
-name: Staging CI
+name: Staging CI Test
 on:
   push:
     branches: [staging]

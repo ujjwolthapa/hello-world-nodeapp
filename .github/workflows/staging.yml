@@ -12,6 +12,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: docker login ${{secrets.DOCKER_USERNAME}} ${{secrets.DOCKER_PASSWORD}}
-      - run: sudo docker build -t bromx/hellonodejs:github .
-      - run: sudo docker push bromx/hellonodejs:github
+      - run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+      - run: sudo docker build -t ${{secrets.DOCKER_USERNAME}}/hellonodejs:github .
+      - run: sudo docker push ${{}secrets.DOCKER_USERNAME}/hellonodejs:github

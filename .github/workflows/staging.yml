@@ -17,4 +17,4 @@ jobs:
           node-version: '18.x'
       - run: sudo docker build -t $DOCKER_USER/hellonodejs:github .
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-      - run: sudo docker push --force $DOCKER_USER/hellonodejs:github
+      - run: sudo docker push $DOCKER_USER/hellonodejs:github

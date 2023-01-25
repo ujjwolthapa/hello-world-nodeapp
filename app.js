@@ -6,7 +6,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World from staging using pm2');
+  res.end('Hello World from main branch');
 });
 
 server.listen(port, hostname, () => {

@@ -1,0 +1,23 @@
+name: production CI 
+on:
+  pull_request:
+    branches: [main]
+    types:
+      - closed
+
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Installing the nodejs with 18 version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: sudo docker build -t $DOCKER_USER/hellonodejs:github .
+      - run: sudo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - run: sudo docker push $DOCKER_USER/bromx/mysqlnode:latest

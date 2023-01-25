@@ -18,6 +18,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: sudo docker build -t $DOCKER_USER/hellonodejs:github .
+      - run: sudo docker build -t $DOCKER_USER/mysqlnode:latest /home/bromx/projects/nodehello/app/node-mysql
       - run: sudo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-      - run: sudo docker push $DOCKER_USER/bromx/mysqlnode:latest
+      - run: sudo docker push $DOCKER_USER/mysqlnode:latest
